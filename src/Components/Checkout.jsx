@@ -18,27 +18,52 @@ function Checkout() {
     userProgressCtx.hideCheckout();
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    console.log("Harshit - handle submit form ", event.target);
+
+    const fd = new FormData(event.target);
+    const customerData = Object.fromEntries(fd.entries());
+
+    fetch("http://localhost:3000/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        order: {
+          items: cartCtx.items,
+          customer: customerData,
+        },
+      }),
+    });
+  }
+
   return (
     <Modal open={userProgressCtx.progress === "checkout"}>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h2 className="font-semibold mb-5">Checkout</h2>
-        <Input label="Full Name" type="text" id="full-name" />
+        <Input label="Full Name" type="text" id="name" />
         <Input label="Email" type="email" id="email" />
         <div className="flex gap-3">
           <Input label="Address" type="text" id="address" />
           <Input label="City" type="text" id="city" />
         </div>
-      </form>
-      <p className="my-4 text-end font-bold">
-        Total Amount: {currencyFormatter.format(cartTotal)}{" "}
-      </p>
+        <p className="my-4 text-end font-bold">
+          Total Amount: {currencyFormatter.format(cartTotal)}{" "}
+        </p>
 
-      <div className="flex flex-wrap gap-6 justify-end my-3">
-        <button onClick={handleHideCheckout}>Close</button>
-        <button className="bg-yellow-400 p-2 font-semibold rounded-md hover:bg-yellow-500">
-          Place Order
-        </button>
-      </div>
+        <div className="flex flex-wrap gap-6 justify-end my-3">
+          <button onClick={handleHideCheckout}>Close</button>
+          <button
+            type="submit"
+            className="bg-yellow-400 p-2 font-semibold rounded-md hover:bg-yellow-500"
+          >
+            Place Order
+          </button>
+        </div>
+      </form>
     </Modal>
   );
 }
