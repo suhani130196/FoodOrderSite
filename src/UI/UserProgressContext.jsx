@@ -26,7 +26,9 @@ export function UserProgressProvider({ children }) {
     setUserProgress("checkout");
   }
 
-  function hideCheckout() {}
+  function hideCheckout() {
+    setUserProgress("")
+  }
 
   const userProgressCtx = {
     progress: userProgress,

@@ -25,7 +25,7 @@ function AvailableFoodCards({ meal }) {
           </p>
           <p className="text-[15px]">{meal.description}</p>
           <button
-            className="mt-4 bg-yellow-400 text-black p-2 rounded-md font-semibold"
+            className="mt-4 bg-yellow-400 hover:bg-yellow-500 text-black p-2 rounded-md font-semibold"
             onClick={handleAddMealToCart}
           >
             Add To Cart

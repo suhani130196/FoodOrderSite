@@ -21,6 +21,10 @@ function Cart() {
     userProgressCtx.hideCart();
   }
 
+  function handleGoToCheckout(){
+    userProgressCtx.showCheckout();
+  }
+
   return (
     <Modal
       className="items-center"
@@ -41,7 +45,7 @@ function Cart() {
         <button className="font-semibold" onClick={handleCloseCart}>
           Close
         </button>
-        {cartCtx.items.length >0 ? (<button className="bg-yellow-400 p-2 font-semibold rounded-md hover:bg-yellow-500">
+        {cartCtx.items.length >0 ? (<button onClick={handleGoToCheckout} className="bg-yellow-400 p-2 font-semibold rounded-md hover:bg-yellow-500">
           Go to Checkout
         </button>): null}
       </div>
