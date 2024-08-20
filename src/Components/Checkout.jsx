@@ -40,6 +40,11 @@ function Checkout() {
     });
   }
 
+  function showOrderConfirmed() {
+    handleHideCheckout()
+    userProgressCtx.orderConfirmed();
+  }
+
   return (
     <Modal open={userProgressCtx.progress === "checkout"}>
       <form onSubmit={handleSubmit}>
@@ -57,6 +62,7 @@ function Checkout() {
         <div className="flex flex-wrap gap-6 justify-end my-3">
           <button onClick={handleHideCheckout}>Close</button>
           <button
+            onClick={showOrderConfirmed}
             type="submit"
             className="bg-yellow-400 p-2 font-semibold rounded-md hover:bg-yellow-500"
           >

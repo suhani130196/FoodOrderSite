@@ -27,7 +27,11 @@ export function UserProgressProvider({ children }) {
   }
 
   function hideCheckout() {
-    setUserProgress("")
+    setUserProgress("");
+  }
+
+  function orderConfirmed() {
+    setUserProgress("orderConfirmed");
   }
 
   const userProgressCtx = {
@@ -36,6 +40,7 @@ export function UserProgressProvider({ children }) {
     hideCart,
     showCheckout,
     hideCheckout,
+    orderConfirmed,
   };
 
   return (
