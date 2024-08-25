@@ -45,7 +45,7 @@ function Cart() {
         <button className="font-semibold" onClick={handleCloseCart}>
           Close
         </button>
-        {cartCtx.items.length >0 ? (<button onClick={handleGoToCheckout} className="bg-yellow-400 p-2 font-semibold rounded-md hover:bg-yellow-500">
+        {cartCtx.items.length >0 ? (<button onClick={handleGoToCheckout} className="bg-red-400 hover:bg-red-500 p-2 font-semibold rounded-md">
           Go to Checkout
         </button>): null}
       </div>

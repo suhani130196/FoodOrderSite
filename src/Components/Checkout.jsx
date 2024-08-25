@@ -64,7 +64,7 @@ function Checkout() {
           <button
             onClick={showOrderConfirmed}
             type="submit"
-            className="bg-yellow-400 p-2 font-semibold rounded-md hover:bg-yellow-500"
+            className="bg-red-400 p-2 font-semibold rounded-md hover:bg-red-500"
           >
             Place Order
           </button>

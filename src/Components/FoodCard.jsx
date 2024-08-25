@@ -20,16 +20,18 @@ function AvailableFoodCards({ meal }) {
         </div>
         <div className="p-6 text-center bg-black space-y-3">
           <h1 className="font-bold text-[25px]">{meal.name}</h1>
-          <p className="text-yellow-400 bg-brown w-[60px] mx-24">
+          <p className="text-red-400 bg-brown w-[60px] mx-24">
             {currencyFormatting.format(meal.price)}
           </p>
           <p className="text-[15px]">{meal.description}</p>
-          <button
-            className="mt-4 bg-yellow-400 hover:bg-yellow-500 text-black p-2 rounded-md font-semibold"
-            onClick={handleAddMealToCart}
-          >
-            Add To Cart
-          </button>
+          <div className="text-center m-6 gap-3 items-center">
+            <button
+              className="mt-4 bg-red-400 hover:bg-red-500 text-black p-2 rounded-md font-semibold"
+              onClick={handleAddMealToCart}
+            >
+              Add To Cart
+            </button>
+          </div>
         </div>
       </div>
       {/* </div> */}
